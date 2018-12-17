@@ -1,6 +1,6 @@
 <template>
     <footer>
-        via@Shicript
+        via@<a href="https://github.com/sweshixing">Shicript</a>
     </footer>
 </template>
 <style>

@@ -1,6 +1,6 @@
 module.exports = {
-     mysql = {
-        hostname: "127.0.0.1",
+     mysql : {
+        hostname: "localhost",
         user: "root",
         database: "movie",
         port: "3306"
