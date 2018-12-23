@@ -41,19 +41,25 @@ export default {
   methods: {
     postAccount: function(data) {
       axios
-        .post("/api/login", {
+        .post("/api/home/login", {
           account: data.user_account,
           psw: data.user_psw
         })
-        .then(function(ans) {
-          if (!ans) alert('fuck you')
-          window.location.replace("http://localhost:8080/home")
+        .then((ans)=> {
+          // if (!ans.data.isUser) alert('fuck you')
+          // this.$router.push('/home')
+          console.log(ans.data)
+          if(ans.data.isUser){
+            this.$router.push('/home')
+          } else{
+            alert('wrong account or password!')
+          }
         });
     },
 
     login: function() {
         this.postAccount(this.user_info)
-        this.$router.push('/home')
+        // this.$router.push('/home')
     }
   }
 };

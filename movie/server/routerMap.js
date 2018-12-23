@@ -25,18 +25,33 @@ router.post('/movieinfo', (req, res) => {
     // console.log(req.body.movie_id)
     // console.log('recieved get requirement.')
     const ids = req.body.movie_id
-    conn.query(sqlMap.random_movie,ids,(er,result)=>{
-        if(er) console.log(er)
+    conn.query(sqlMap.random_movie, ids, (er, result) => {
+        if (er) console.log(er)
         // console.log(result[0].movieName)
         res.json(result)
-    })  
+    })
     console.log(ids)
 
 })
-router.post('/login',(req,res)=>{
+router.post('/login', (req, res) => {
     const account_info = req.body
-    
-
+    console.log(account_info)
+    let send_info = {
+        isUser: false
+    }
+    conn.query(sqlMap.user_verify,account_info.account, (er, result) => {
+        console.log(result)
+        // if (er) res.send(send_info)
+        if (result[0] == undefined) {
+            console.log(result)
+            res.send(send_info)
+        }
+        else {
+            console.log(result)
+            send_info.isUser = true
+            res.send(send_info)
+        }
+    })
 })
 
 module.exports = router
