@@ -33,6 +33,11 @@ router.post('/movieinfo', (req, res) => {
     console.log(ids)
 
 })
+router.post('/login',(req,res)=>{
+    const account_info = req.body
+    
+
+})
 
 module.exports = router
 
