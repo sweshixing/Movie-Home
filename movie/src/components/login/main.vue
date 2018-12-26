@@ -49,8 +49,8 @@ export default {
           // if (!ans.data.isUser) alert('fuck you')
           // this.$router.push('/home')
           console.log(ans.data)
-          if(ans.data.isUser){
-            this.$router.push('/home')
+          if(ans.data.isUser==true){
+             this.$router.push('/home')
           } else{
             alert('wrong account or password!')
           }
